@@ -1,0 +1,14 @@
+<div>
+ <h4>Product: <%= @product.name %></h4>
+  <a href="/"> Back to all products </a>
+  <p>Price: <%= @product.price %></p>
+  <p>What is it? </p>
+  <p><%= @product.description %></p>
+
+</div>
+<div>
+  <%= link_to "Edit this product", "/products/#{@product.id}/edit", method: :get %>
+</div>
+<div>
+  <%= link_to "Destroy this product", "/products/#{@product.id}", method: :delete %>
+</div>

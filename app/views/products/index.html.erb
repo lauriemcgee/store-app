@@ -1,0 +1,11 @@
+<h3> All Products </h3>
+
+<div class="container">
+  <% @products.each do |product| %>
+  <div>
+    <%= product.name %>
+    <%= product.description %>
+    <%= product.price %>
+  </div>
+  <% end %>
+</div>
