@@ -3,9 +3,16 @@
 <div class="container">
   <% @products.each do |product| %>
   <div>
-    <%= product.name %>
-    <%= product.description %>
-    <%= product.price %>
+    <div>
+      <a href="/products/#{product.id}">
+      <%= product.name %>
+      <p>View Product</p>
+      </a>
+    </div>
+    <div>
+      <%= product.price %>
+      <%= product.description %>
+    </div>
   </div>
   <% end %>
 </div>

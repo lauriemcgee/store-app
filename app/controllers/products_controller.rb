@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
     product.save
     redirect_to "index.html.erb"
   end
-  def destroys
+  def destroy
     product_id = params[:id]
     product = Product.find_by(id: product_id)
     product.destroy
