@@ -7,10 +7,14 @@ class ProductsController < ApplicationController
     render "new.html.erb"
   end
   def create
-    product = Product.create(
+    @product = Product.create(
         name: params[:name],
         description: params[:description],
-        price: params[:price]
+        price: params[:price],
+      )
+    image = Image.create(
+        image: params[:image],
+        product_id: @product.id
       )
     redirect_to "index.html.erb"
   end
