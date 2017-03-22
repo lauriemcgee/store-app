@@ -1,7 +1,7 @@
 <div>
  <h4>Product: <%= @product.name %></h4>
   <a href="/"> Back to all products </a>
-  <% @product.each do |image| %>
+  <% @product.image.each do |image| %>
       <div>
         <img src="<%=image.image%>" class="img-responsive">
       </div>

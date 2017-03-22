@@ -1,13 +1,12 @@
 <h3> All Products </h3>
-<p><a href="/products/new"> New Product?</p>
-
+<p><a href="/products/new"> New Product?</a></p>
+<p> You've visited this page <%= @page_count %> times!
 <div class="container">
   <% @products.each do |product| %>
   <div>
     <div>
-      <a href="/products/#{product.id}">
       <%= product.name %>
-      <p>View Product</p>
+      <%= link_to "View Product", "/products/#{product.id}", method: :get %>
       </a>
     </div>
     <div>

@@ -1,5 +1,11 @@
 class ProductsController < ApplicationController
   def index
+    if session[:count] == nil
+      session[:count] = 0
+    else
+      session[:count] += 1
+    end
+    @page_count = session[:count]
     @products = Product.all
     render "index.html.erb"
   end
