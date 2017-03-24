@@ -1,11 +1,7 @@
 <div>
  <h4>Product: <%= @product.name %></h4>
   <a href="/"> Back to all products </a>
-  <% @product.image.each do |image| %>
-      <div>
-        <img src="<%=image.image%>" class="img-responsive">
-      </div>
-    <% end %>
+  
   <p>Price: <%= @product.price %></p>
   <p>What is it? </p>
   <p><%= @product.description %></p>
@@ -16,4 +12,14 @@
 </div>
 <div>
   <%= link_to "Destroy this product", "/products/#{@product.id}", method: :delete %>
+</div>
+
+<div>
+  <%= form_tag "/orders" method: :post do %>
+    <div>
+      <%= label_tag :quantity %>
+      <%= text_field_tag :quantity %>
+    </div>
+  <%= submit_tag "Buy" %>
+  <% end %>
 </div>
