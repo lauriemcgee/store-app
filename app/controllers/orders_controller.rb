@@ -13,7 +13,10 @@ class OrdersController < ApplicationController
         total: order_total
       )
     flash[:success] = "Successfully ordered product(s)!"
-    redirect_to "show.html.erb"
+    redirect_to "/orders/#{order.id}"
+  end
+  def show
+    render "show.html.erb"
   end
 end
 

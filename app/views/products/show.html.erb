@@ -12,6 +12,7 @@
         <p><%= link_to "Delete", "/products/#{@product.id}", method: :delete, class: "btn btn-primary" %> </p>
         <p><%= form_tag "/orders", method: :post do %> 
           <%= label_tag :quantity %>
+          <input type="text">
           <%= submit_tag "Buy" %>
           <% end %> </p>
     </div>
