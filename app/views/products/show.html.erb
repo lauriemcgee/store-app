@@ -3,16 +3,17 @@
     <div class="col-sm-8 col-sm-offset-2">
       <h4>Product: <%= @product.name %></h4>
       <a href="/"> Back to all products </a>
-        <p>Price: <%= number_to_currency @product.price %></p>
+        <p>Subtotal: <%= number_to_currency @subtotal %></p>
         <p> Tax:  <%= number_to_currency @product_tax %> </p>
-        <p> Total: number_to_currency @order_total %> </p>
+        <p> Order total: number_to_currency @order_total %> </p>
         <p>What is it? </p>
         <p><%= @product.description %></p>
         <p><%= link_to "Edit this product", "/products/#{@product.id}/edit", class: "btn btn-primary"%> </p>
         <p><%= link_to "Delete", "/products/#{@product.id}", method: :delete, class: "btn btn-primary" %> </p>
         <p><%= form_tag "/orders", method: :post do %> 
           <%= label_tag :quantity %>
-          <input type="text">
+          <input type="text" name="quantity">
+          <input type="text" name="product_id">
           <%= submit_tag "Buy" %>
           <% end %> </p>
     </div>
