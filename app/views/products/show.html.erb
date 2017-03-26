@@ -1,25 +1,19 @@
-<div>
- <h4>Product: <%= @product.name %></h4>
-  <a href="/"> Back to all products </a>
-  
-  <p>Price: <%= @product.price %></p>
-  <p>What is it? </p>
-  <p><%= @product.description %></p>
-
-</div>
-<div>
-  <%= link_to "Edit this product", "/products/#{@product.id}/edit", method: :get %>
-</div>
-<div>
-  <%= link_to "Destroy this product", "/products/#{@product.id}", method: :delete %>
-</div>
-
-<div>
-  <%= form_tag "/orders" method: :post do %>
-    <div>
-      <%= label_tag :quantity %>
-      <%= text_field_tag :quantity %>
+<section>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h4>Product: <%= @product.name %></h4>
+      <a href="/"> Back to all products </a>
+        <p>Price: <%= number_to_currency @product.price %></p>
+        <p> Tax:  <%= number_to_currency @product_tax %> </p>
+        <p> Total: number_to_currency @order_total %> </p>
+        <p>What is it? </p>
+        <p><%= @product.description %></p>
+        <p><%= link_to "Edit this product", "/products/#{@product.id}/edit", class: "btn btn-primary"%> </p>
+        <p><%= link_to "Delete", "/products/#{@product.id}", method: :delete, class: "btn btn-primary" %> </p>
+        <p><%= form_tag "/orders", method: :post do %> 
+          <%= label_tag :quantity %>
+          <%= submit_tag "Buy" %>
+          <% end %> </p>
     </div>
-  <%= submit_tag "Buy" %>
-  <% end %>
-</div>
+  </div>
+<section>
