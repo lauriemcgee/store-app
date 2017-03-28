@@ -1,12 +1,28 @@
 class ProductsController < ApplicationController
   def index
     if session[:count] == nil
-      session[:count] = 0
-    else
-      session[:count] += 1
+       session[:count] = 0
     end
+    
+    session[:count] +=1
     @page_count = session[:count]
-    @products = Product.all
+    
+    if 
+        params[:form_name]
+        @products = Products.where("name LIKE ?", "%" + params[:form_name] + "%")
+      elsif 
+        params[:discounted] == "true"
+        @products = Product.where("price < ?", 10)
+      elsif 
+        params[:category]
+        category = Category.find_by(name: params[:category])
+        @products = category.products
+      else
+        sort_attribute = params[:sort_by] || "name"
+        sort_attribute_order = params[:sort_order] || "asc"
+        @products = Product.all.order(sort_attribute => sort_attribute_order)
+    end
+    
     render "index.html.erb"
   end
   def new
