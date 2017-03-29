@@ -1,51 +1,28 @@
   
 <section>
-  <nav class="navbar navbar-inverse navbar-static-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle Navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Products</a>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">All Products<span class="sr-only">(current)</span></a></li>
-        <li><a href="/login">Login!</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Account stuff</a></li>
-            <li><a href="#">More account stuff</a></li>
-            <li><a href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Search the site!</button>
-      </form>
-    </div><!-- /.navbar-collapse -->
-    </div>
-  </nav>
   <% if current_user %>
     <div class="jumbotron">
       <h6> Hi! <%= current_user.name %>!</h6>
       <p>Wanna buy some products?</p>
-      <p><a class="btn btn-primary btn-lg" href="/products" role="button">All Products</a></p>
-      <p><a class="btn btn-primary btn-lg" href="/products" role="button">My Products</a></p>
+      <p><a href="/products" role="button">
+      <span class="glyphicon glyphicon-asterisk"> 
+        </span><br>All Products</a></p>
+      <p><a href="/products" role="button"> 
+      <span class="glyphicon glyphicon-asterisk"> 
+        </span>
+        <br>My Products</a></p>
     </div>
   <% else %> 
     <div class="jumbotron">
         <h6> We've Got Products!</h6>
       <p>Wanna buy some products?</p>
-      <p><a class="btn btn-primary btn-lg" href="/signup" role="button">Sign-up!</a></p>
-      <p><a class="btn btn-primary btn-lg" href="/login" role="button">Log in!</a></p>
+      <p><a href="/signup" role="button">
+        <span class="glyphicon glyphicon-asterisk"> 
+        </span>
+        Sign-up!</a></p>
+      <p><a href="/login" role="button"><span class="glyphicon glyphicon-asterisk"> 
+        </span>
+        Log in!</a></p>
     </div>
   <% end %>
 </section>

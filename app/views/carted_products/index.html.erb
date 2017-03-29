@@ -1,10 +1,19 @@
 <h1> checkout! </h1>
-
-<% @carted_products.each do |carted_product| %>
-  <p> <%= carted_product.product.name %></p>
-  <p> <%= carted_product.product.price %></p>
-<% end %>
-
-<%= form_tag "/orders", method: :post do %>
-  <button type="submit" class="btn btn-primary btn-sm" role="button">Checkout</button>
-<% end %>
+<div class="row">
+  <div class="container">
+    <% @carted_products.each do |carted_product| %>
+      <div class="col">
+        <p> <%= carted_product.product.name %></p>
+        <p> <%= carted_product.product.price %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div>
+   <p>
+   <a href="/">Back to all Produkts</a>
+      </p>
+  <p><%= form_tag "/orders", method: :post do %>
+    <button type="submit" class="btn btn-primary btn-sm" role="button">Checkout</button>
+  <% end %></p>
+</div>

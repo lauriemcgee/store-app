@@ -7,18 +7,15 @@ class OrdersController < ApplicationController
       end
     tax = subtotal.to_f * 0.09
     total = subtotal + tax
-    order = Order.create(
+    @order = Order.create(
       user_id: current_user.id,
       subtotal: subtotal,
       tax: tax,
       total: total
       )
-    @carted_products.update(status: "purchased", order_id: order.id)
+    @carted_products.update(status: "purchased", order_id: @order.id)
     flash[:success] = "Successfully ordered product(s)!"
-    redirect_to "show.html.erb"
-  end
-  def show
-    redirect_to "/"
+    render "show.html.erb"
   end
 end
 
