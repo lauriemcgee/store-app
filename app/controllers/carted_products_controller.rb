@@ -4,20 +4,13 @@ class CartedProductsController < ApplicationController
     render "index.html.erb"
   end
   def create
-    product_id = params[:id]
-    product = Product.find_by(id: product_id)
-    quantity = params[:quantity]
-    @subtotal = product.price * quantity.to_i
-    @product_tax = @subtotal * 0.09
-    @order_total = @subtotal + @product_tax
-
     carted_product = CartedProduct.create(
         user_id: current_user.id,
         product_id: params[:product_id],
         quantity: params[:quantity],
         status: "carted"
       )
-    flash[:success] = "Successfully ordered product(s)!"
+    flash[:success] = "Successfulled added to cart!"
     redirect_to "/checkout"
   end
 end

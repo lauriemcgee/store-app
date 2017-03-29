@@ -1,1 +1,10 @@
 <h1> checkout! </h1>
+
+<% @carted_products.each do |carted_product| %>
+  <p> <%= carted_product.product.name %></p>
+  <p> <%= carted_product.product.price %></p>
+<% end %>
+
+<%= form_tag "/orders", method: :post do %>
+  <button type="submit" class="btn btn-primary btn-sm" role="button">Checkout</button>
+<% end %>
