@@ -9,8 +9,6 @@ class OrdersController < ApplicationController
 
     order = Order.create(
         user_id: current_user.id,
-        product_id: params[:product_id],
-        quantity: params[:quantity],
         subtotal: @subtotal,
         tax: @product_tax,
         total: @order_total
