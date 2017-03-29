@@ -10,11 +10,15 @@
         <p><%= @product.description %></p>
         <p><%= link_to "Edit this product", "/products/#{@product.id}/edit", class: "btn btn-primary"%> </p>
         <p><%= link_to "Delete", "/products/#{@product.id}", method: :delete, class: "btn btn-primary" %> </p>
-        <p><%= form_tag "/orders", method: :post do %> 
+        
+
+
+
+        <p><%= form_tag "/checkout", method: :post do %> 
           <%= label_tag :quantity %>
           <input type="text" name="quantity">
           <input type="hidden" name="product_id" value="<%= @product_id %>">
-          <%= submit_tag "Buy" %>
+          <%= submit_tag "Add to cart!" %>
           <% end %> </p>
     </div>
   </div>
