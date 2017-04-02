@@ -5,6 +5,9 @@
       <div class="col">
         <p> <%= carted_product.product.name %></p>
         <p> <%= carted_product.product.price %></p>
+        <%= form_tag "/carted_products/#{carted_product.id}", method: :delete do %>
+          <p> <button type="submit" class="btn btn-primary btn-sm" role="button">Remove from cart</button></p>
+        <% end %>
       </div>
     <% end %>
   </div>

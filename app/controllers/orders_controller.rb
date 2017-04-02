@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   def create
     @carted_products = current_user.carted_products.where("status=?", "carted")
     subtotal = 0
@@ -13,7 +14,7 @@ class OrdersController < ApplicationController
       tax: tax,
       total: total
       )
-    @carted_products.update(status: "purchased", order_id: @order.id)
+    @carted_products.update_all(status: "purchased", order_id: @order.id)
     flash[:success] = "Successfully ordered product(s)!"
     render "show.html.erb"
   end
